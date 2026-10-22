@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#eaf6ff">
+<title>Презентації</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Raleway:wght@400;500;600;700;800&family=Marck+Script&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#eaf6ff;--blue-pale:#d9efff;--blue:#a9d9f5;--brown-deep:#843d2d;--brown:#934631;--brown-light:#ad5a43;--text:#354653;--text-mid:#526b7c}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',sans-serif;min-height:100vh;background:linear-gradient(145deg,#eaf6ff 0%,#dff1ff 48%,#f1f8ff 100%);color:var(--text);position:relative;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 42% 38% at 8% 12%,rgba(255,255,255,.8),transparent 70%),radial-gradient(ellipse 45% 45% at 92% 78%,rgba(160,216,250,.35),transparent 72%)}
+.page{position:relative;z-index:1;max-width:850px;margin:0 auto;padding:28px 20px 42px}
+.header{text-align:center;margin-bottom:18px}
+.logo{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin-bottom:8px;color:var(--brown);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:.8rem}
+.logo svg{width:38px;height:38px;filter:drop-shadow(0 3px 5px rgba(132,61,45,.18))}
+h1{font-family:'Marck Script',cursive;font-weight:400;font-size:clamp(3rem,7vw,4.5rem);line-height:1.12;color:var(--brown-deep);text-shadow:0 1px 0 white,0 3px 8px rgba(132,61,45,.14);margin:0 0 8px}
+.header-desc{max-width:660px;margin:0 auto;color:var(--text-mid);font-size:1.05rem;line-height:1.65;font-weight:500}
+.quick-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:20px 0 16px}
+.nav-btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--brown-deep);font-weight:800;padding:10px 17px;border-radius:999px;background:rgba(255,255,255,.7);border:1px solid rgba(132,61,45,.18);box-shadow:0 5px 14px rgba(75,120,150,.10);transition:transform .18s,background .18s}
+.nav-btn:hover{transform:translateY(-3px);background:#fff}
+.nav-btn svg{width:22px;height:22px;flex-shrink:0}
+.divider{display:flex;align-items:center;gap:12px;margin:14px 0 6px}
+.divider:before,.divider:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(147,70,49,.55),transparent)}
+.divider span{width:8px;height:8px;border-radius:50%;background:var(--brown-light);box-shadow:0 0 0 5px rgba(173,90,67,.10)}
+.section{scroll-margin-top:18px;margin-top:28px}
+.section-title{font-family:'Marck Script',cursive;font-size:clamp(2.25rem,5vw,3rem);font-weight:400;color:var(--brown-deep);border-bottom:2px solid rgba(132,61,45,.32);padding-bottom:5px;text-shadow:0 1px 0 white,0 2px 5px rgba(132,61,45,.10)}
+.section-desc{font-size:1rem;line-height:1.6;color:var(--text-mid);font-weight:500;margin:8px 5px 12px}
+.group-title{font-size:1rem;font-weight:800;color:var(--brown);margin:14px 0 5px 8px}
+.links-list{display:flex;flex-direction:column}
+
+.filter-panel{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(130px,1fr) auto;align-items:end;gap:12px;margin:12px 0 18px;padding:17px;border:1px solid rgba(132,61,45,.2);border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(217,239,255,.72));box-shadow:0 9px 24px rgba(76,127,158,.10)}
+.filter-field{display:flex;flex-direction:column;gap:7px;min-width:0}.filter-field label{font-size:.9rem;font-weight:800;color:var(--brown-deep)}
+.filter-field select{width:100%;min-height:43px;padding:10px 35px 10px 12px;border:1px solid rgba(132,61,45,.28);border-radius:11px;background:#fff;color:var(--text);font:600 .94rem 'Raleway',sans-serif;outline-color:var(--brown-light);cursor:pointer}
+.filter-reset{min-height:43px;padding:10px 14px;border:1px solid rgba(132,61,45,.3);border-radius:11px;background:linear-gradient(135deg,#fff,#f9e9e3);color:var(--brown-deep);font:800 .88rem 'Raleway',sans-serif;cursor:pointer;transition:transform .18s,background .18s;white-space:nowrap}.filter-reset:hover{transform:translateY(-2px);background:#fff}
+.filter-status{grid-column:1/-1;margin:0;color:var(--text-mid);font-size:.88rem;font-weight:700;line-height:1.4}.link-card[hidden]{display:none!important}.empty-results{padding:18px 12px;text-align:center;color:var(--brown);font-weight:700;border:1px dashed rgba(132,61,45,.28);border-radius:12px;background:rgba(255,255,255,.45)}
+@media(max-width:600px){.filter-panel{grid-template-columns:1fr 1fr;padding:13px;gap:10px}.filter-reset{grid-column:1/-1}.filter-status{grid-column:1/-1}}
+
+.link-card{display:flex;align-items:center;gap:12px;padding:11px 10px;text-decoration:none;color:inherit;border-bottom:1px solid rgba(132,61,45,.16);border-radius:8px;transition:padding-left .2s,background .2s}
+.link-card:hover{padding-left:17px;background:rgba(255,255,255,.48)}
+.link-body{flex:1;min-width:0}
+.link-name{display:block;font-family:'Marck Script',cursive;font-size:clamp(1.5rem,3.5vw,1.85rem);line-height:1.2;color:var(--brown-deep);margin-bottom:3px;transition:color .15s}
+.link-card:hover .link-name{color:var(--brown-light)}
+.link-tag{display:block;font-size:.82rem;line-height:1.35;color:var(--text-mid);font-weight:700;letter-spacing:.2px}
+.link-arrow{flex-shrink:0;color:var(--brown-light);font-size:1.3rem;transition:transform .18s}
+.link-card:hover .link-arrow{transform:translate(3px,-2px)}
+.student-work{margin-top:34px;padding:17px 18px 12px;border:1px solid rgba(132,61,45,.22);border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(215,239,255,.62));box-shadow:0 12px 30px rgba(76,127,158,.12)}
+.student-work .section-title{border-bottom-color:rgba(132,61,45,.42)}
+.student-work .section-desc{margin-bottom:8px}
+footer{text-align:center;margin-top:32px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.05rem;color:#6d8492}
+.to-top{position:fixed;right:20px;bottom:20px;z-index:20;width:52px;height:52px;border:1px solid rgba(255,255,255,.9);border-radius:50%;display:grid;place-items:center;color:#fff;background:radial-gradient(circle at 30% 25%,#c98269,#934631 70%,#6d2f24);box-shadow:0 8px 18px rgba(87,55,47,.25);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(15px);transition:.25s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top svg{width:23px;height:23px}
+/* Парашутисти з плавним спуском по краях */
+.paratroopers{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.paratrooper{position:absolute;top:-190px;width:clamp(58px,7vw,92px);height:auto;opacity:.8;filter:drop-shadow(0 5px 5px rgba(55,94,120,.13));animation:descend var(--duration) linear var(--delay) infinite}
+.paratrooper.left{left:clamp(5px,3.3vw,48px)}
+.paratrooper.right{right:clamp(5px,3.3vw,48px);transform:scaleX(-1)}
+.paratrooper svg{width:100%;height:auto;display:block;animation:swing var(--swing) ease-in-out infinite alternate}
+@keyframes descend{0%{top:-180px;translate:0 0;opacity:0}8%{opacity:.8}90%{opacity:.8}100%{top:calc(100vh + 150px);translate:var(--drift) 0;opacity:0}}
+@keyframes swing{from{rotate:-7deg}to{rotate:7deg}}
+@media(max-width:700px){.paratrooper{width:52px;opacity:.42}.paratrooper.left{left:0}.paratrooper.right{right:0}.page{padding:20px 14px 34px}.student-work{padding:13px 10px 8px}.link-card{padding:10px 6px}}
+@media(max-width:430px){.paratrooper{width:36px;opacity:.28}.header-desc{font-size:.96rem}.nav-btn{font-size:.85rem;padding:9px 12px}.link-name{font-size:1.45rem}.link-tag{font-size:.76rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.paratrooper{display:none}}
+</style>
+</head>
+<body>
+<div class="paratroopers" aria-hidden="true" id="paratroopers"></div>
+<main class="page" id="top">
+<header class="header">
+<div class="logo"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="5" y="7" width="38" height="28" rx="4" fill="#fff" stroke="#934631" stroke-width="2"/><path d="M12 27l7-8 6 5 8-10 4 5" stroke="#934631" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 41h12M24 35v6" stroke="#934631" stroke-width="2.5" stroke-linecap="round"/></svg><span>Навчальні матеріали</span></div>
+<h1>Презентації</h1>
+<p class="header-desc">Добірка презентацій до уроків математики, фізики, астрономії та виховної роботи. Натисніть на назву, щоб відкрити матеріал у новій вкладці.</p>
+<nav class="quick-nav" aria-label="Навігація сторінкою">
+<a class="nav-btn" href="#presentations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8M7 13l4-4 3 2 3-4"/></svg>Презентації</a>
+<a class="nav-btn" href="#student-work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.2 5.6.7-4.1 3.8 1.1 5.5L12 15.4 7 18.2l1.1-5.5L4 8.9l5.6-.7L12 3z"/></svg>Роботи учнів</a>
+</nav>
+<div class="divider"><span></span></div>
+</header>
+<section class="section" id="presentations">
+<h2 class="section-title">Презентації до уроків</h2>
+<div class="filter-panel" aria-label="Фільтри презентацій">
+  <div class="filter-field">
+    <label for="subjectFilter">Предмет / напрям</label>
+    <select id="subjectFilter">
+      <option value="all">Усі предмети й напрями</option>
+      <option value="mathematics">Математика</option>
+      <option value="physics">Фізика</option>
+      <option value="astronomy">Астрономія</option>
+      <option value="education">Виховна робота</option>
+    </select>
+  </div>
+  <div class="filter-field">
+    <label for="gradeFilter">Клас</label>
+    <select id="gradeFilter">
+      <option value="all">Усі класи</option>
+      <option value="5">5 клас</option><option value="6">6 клас</option>
+      <option value="7">7 клас</option><option value="8">8 клас</option>
+      <option value="9">9 клас</option><option value="10">10 клас</option>
+      <option value="11">11 клас</option>
+    </select>
+  </div>
+  <button class="filter-reset" id="resetFilters" type="button">Скинути фільтри</button>
+  <p class="filter-status" id="filterStatus" aria-live="polite">Показано всі матеріали.</p>
+</div>
+<div class="links-list">
+<a class="link-card" href="https://canva.link/nxh0u0acilnyg5y" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="9">
+      <div class="link-body"><span class="link-name">Магнетизм. Повторення</span><span class="link-tag">9 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/9b0uldpfyu3xvep" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="11">
+      <div class="link-body"><span class="link-name">Електричний струм у газах</span><span class="link-tag">11 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/xrmvuzxyo0808ta" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="11">
+      <div class="link-body"><span class="link-name">Електричний струм в електролітах. Електроліз</span><span class="link-tag">11 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/uyrrd267i6eyyq8" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="8,9">
+      <div class="link-body"><span class="link-name">Центральні та описані кути. Вписані і описані чотирикутники</span><span class="link-tag">9, 8 класи · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/cj7hhg4vtshm1of" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="8,9">
+      <div class="link-body"><span class="link-name">Чотирикутники</span><span class="link-tag">8, 9 класи · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/odkr3cmexz7tgo0" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="8">
+      <div class="link-body"><span class="link-name">Квадратне рівняння як математична модель прикладних задач</span><span class="link-tag">8 клас · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/bpqx57lpat6mnea" target="_blank" rel="noopener noreferrer" data-subject="education" data-grades="">
+      <div class="link-body"><span class="link-name">Хто такий</span><span class="link-tag">Виховна робота</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/pf6mw493ml3t1r0" target="_blank" rel="noopener noreferrer" data-subject="education" data-grades="">
+      <div class="link-body"><span class="link-name">Як зберегти свій емоційний стан у нормі і не відстати у навчанні?</span><span class="link-tag">Виховна робота</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/zvzpxytszep1p49" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="6,7">
+      <div class="link-body"><span class="link-name">Задачі на рух</span><span class="link-tag">6, 7 класи · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/n9dszqu3r8zugzu" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="5,6">
+      <div class="link-body"><span class="link-name">Математичні задачі в реальному житті</span><span class="link-tag">5, 6 класи · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/0ld3cqzxxj9hz86" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="11">
+      <div class="link-body"><span class="link-name">Електричний струм у вакуумі. Електровакуумні прилади</span><span class="link-tag">11 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/9mae76ftxoo4ekc" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="6">
+      <div class="link-body"><span class="link-name">Звичайні і десяткові дроби</span><span class="link-tag">6 клас · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/oy4jmyzgvebwlyr" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="11">
+      <div class="link-body"><span class="link-name">Електроліз у службі археології</span><span class="link-tag">11 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/y82e1qj3zjf93ep" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="7,8">
+      <div class="link-body"><span class="link-name">Блоки і підйомні механізми</span><span class="link-tag">7, 8 класи · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/4e8e3xj6afret8w" target="_blank" rel="noopener noreferrer" data-subject="education" data-grades="">
+      <div class="link-body"><span class="link-name">Правила для учнів</span><span class="link-tag">Виховна робота</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/aqvaeoiox8nvsdl" target="_blank" rel="noopener noreferrer" data-subject="astronomy" data-grades="11">
+      <div class="link-body"><span class="link-name">Як визначити місцевий час</span><span class="link-tag">11 клас · астрономія</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/bhonxwvnzitujw4" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="7,8">
+      <div class="link-body"><span class="link-name">Геометрія 7. Повторення</span><span class="link-tag">7, 8 класи · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/iocbq5fws8ncjbb" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="11">
+      <div class="link-body"><span class="link-name">Захист учнівських проєктів «Фізика атома та атомного ядра. Фізичні основи атомної енергетики»</span><span class="link-tag">11 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/zeob5uphwyqqmxm" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="9">
+      <div class="link-body"><span class="link-name">Проєкт з фізики «Атомна енергетика і зелений перехід: допомога чи перешкода?»</span><span class="link-tag">9 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/j06oqp1tmsp5g1o" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="9">
+      <div class="link-body"><span class="link-name">Проєкт: «Чи можливо відштовхнутись у космосі?»</span><span class="link-tag">9 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/fj2cij9var3xfcf" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="8">
+      <div class="link-body"><span class="link-name">Електричні явища. Електричний струм</span><span class="link-tag">8 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/ceeuvdcim35k9tc" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="8">
+      <div class="link-body"><span class="link-name">Захист навчальних проєктів з теми «Електричне поле»</span><span class="link-tag">8 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/wlq1u92zdzxz39j" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="7">
+      <div class="link-body"><span class="link-name">Літак vs Корабель — хто складніший?</span><span class="link-tag">7 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/gzszq9xfakb2o7e" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="7">
+      <div class="link-body"><span class="link-name">Судноплавство та повітроплавання</span><span class="link-tag">7 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/ixa4mbq59t435eq" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="9">
+      <div class="link-body"><span class="link-name">Теми проєктів «Рух і взаємодія. Закони збереження»</span><span class="link-tag">9 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/vpbouiaowv2bvdr" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="11">
+      <div class="link-body"><span class="link-name">Тема дослідження: «Археологія та радіовуглецеве датування»</span><span class="link-tag">11 клас</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/sjxs9zmj9vtqmzk" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="11">
+      <div class="link-body"><span class="link-name">Тема дослідження: «Сліди часу: як розпадаються атоми і як ми використовуємо ці знання у ядерній медицині»</span><span class="link-tag">11 клас</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/mgs8dq6up2gcz9k" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="9">
+      <div class="link-body"><span class="link-name">Тема дослідження: «Екологія та безпека»</span><span class="link-tag">9 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/k6gewe6dtfm3f21" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="6">
+      <div class="link-body"><span class="link-name">У пошуках звичайних дробів</span><span class="link-tag">6 клас · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/mytbx0l5eads1z8" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="9">
+      <div class="link-body"><span class="link-name">Теорема косинусів</span><span class="link-tag">9 клас · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/gb12yq8u42ayi5w" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="9">
+      <div class="link-body"><span class="link-name">Проєкт «Магнітне поле Землі та його вплив на навколишнє середовище»</span><span class="link-tag">9 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/a7vql2kydfqn6rw" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="9">
+      <div class="link-body"><span class="link-name">Проєкт «Системи бездротового заряджання»</span><span class="link-tag">9 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/b4xwlkjd6zhwjq1" target="_blank" rel="noopener noreferrer" data-subject="mathematics" data-grades="7">
+      <div class="link-body"><span class="link-name">Суміжні і вертикальні кути</span><span class="link-tag">7 клас · математика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+</div>
+</section>
+<section class="section student-work" id="student-work">
+<h2 class="section-title">Роботи учнів</h2>
+<p class="section-desc">Учнівські дослідження та проєкти.</p>
+<div class="links-list">
+<a class="link-card" href="https://canva.link/sdu06jg19v7n7x6" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="8">
+      <div class="link-body"><span class="link-name">Вплив електричного струму на організм людини</span><span class="link-tag">8 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/7pnlqdy8xs368dc" target="_blank" rel="noopener noreferrer" data-subject="astronomy" data-grades="11">
+      <div class="link-body"><span class="link-name">Еволюція зір. Нейтронні зорі. Чорні діри</span><span class="link-tag">11 клас · астрономія</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+<a class="link-card" href="https://canva.link/09p4guuw8grlleb" target="_blank" rel="noopener noreferrer" data-subject="physics" data-grades="8">
+      <div class="link-body"><span class="link-name">Мій телефон і електрика: як заряджаються ґаджети</span><span class="link-tag">8 клас · фізика</span></div>
+      <span class="link-arrow" aria-hidden="true">↗</span>
+    </a>
+</div>
+</section>
+<footer>© Алла Сиянко · Вищетарасівський ліцей · Презентації</footer>
+</main>
+<button class="to-top" id="toTop" type="button" aria-label="Повернутися догори" title="Догори"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg></button>
+<script>
+(function(){
+ const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const layer=document.getElementById('paratroopers');
+ const art='<svg viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 48C10 20 29 7 50 7S90 20 92 48L50 57 8 48Z" fill="#e5a28d" stroke="#934631" stroke-width="2.2"/><path d="M8 48Q50 32 92 48M29 17L50 57 71 17" stroke="#fff2e8" stroke-width="1.7"/><path d="M8 48L43 77M92 48L57 77" stroke="#934631" stroke-width="1.7"/><circle cx="50" cy="81" r="7" fill="#b56d50"/><path d="M50 88L50 111M50 94L38 104M50 94L62 104M50 111L41 128M50 111L60 128" stroke="#4c6f88" stroke-width="5" stroke-linecap="round"/><path d="M42 78Q50 72 58 78" stroke="#6b3c2e" stroke-width="2" stroke-linecap="round"/><path d="M38 104L32 107M62 104L68 107" stroke="#934631" stroke-width="2" stroke-linecap="round"/></svg>';
+ if(!reduce){for(let i=0;i<6;i++){const el=document.createElement('div');el.className='paratrooper '+(i%2?'right':'left');el.innerHTML=art;el.style.setProperty('--duration',(22+(i%3)*6)+'s');el.style.setProperty('--delay',(-i*5.7)+'s');el.style.setProperty('--swing',(3.2+(i%3)*.8)+'s');el.style.setProperty('--drift',(i%2?'-24px':'24px'));el.style.left=i%2?'auto':(2+(i%3)*1.3)+'%';el.style.right=i%2?(2+(i%3)*1.3)+'%':'auto';layer.appendChild(el);}}
+ document.querySelectorAll('.nav-btn').forEach(a=>a.addEventListener('click',e=>{const target=document.querySelector(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}}));
+ const top=document.getElementById('toTop');function check(){top.classList.toggle('show',window.scrollY>300)}window.addEventListener('scroll',check,{passive:true});check();top.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
+ const subjectFilter=document.getElementById('subjectFilter');
+ const gradeFilter=document.getElementById('gradeFilter');
+ const resetFilters=document.getElementById('resetFilters');
+ const filterStatus=document.getElementById('filterStatus');
+ const presentationCards=Array.from(document.querySelectorAll('#presentations .link-card'));
+ const emptyResults=document.createElement('p');emptyResults.className='empty-results';emptyResults.textContent='За вибраними фільтрами матеріалів не знайдено. Спробуйте змінити предмет або клас.';emptyResults.hidden=true;
+ document.querySelector('#presentations .links-list').appendChild(emptyResults);
+ const subjectNames={all:'усіх предметів і напрямів',mathematics:'математики',physics:'фізики',astronomy:'астрономії',education:'виховної роботи'};
+ function applyFilters(){
+   const subject=subjectFilter.value,grade=gradeFilter.value;let visible=0;
+   presentationCards.forEach(card=>{
+     const subjects=(card.dataset.subject||'').split(',').filter(Boolean);
+     const grades=(card.dataset.grades||'').split(',').filter(Boolean);
+     const subjectMatch=subject==='all'||subjects.includes(subject);
+     const gradeMatch=grade==='all'||grades.includes(grade);
+     const show=subjectMatch&&gradeMatch;card.hidden=!show;if(show)visible++;
+   });
+   emptyResults.hidden=visible!==0;
+   const subjectText=subject==='all'?'усі предмети й напрями':subjectNames[subject];
+   const gradeText=grade==='all'?'усі класи':grade+' клас'+(grade==='5'||grade==='6'||grade==='7'||grade==='8'||grade==='9'?'':'');
+   filterStatus.textContent=visible===0?'Нічого не знайдено. Змініть параметри фільтрації.':`Знайдено матеріалів: ${visible}. Фільтри: ${subjectText}; ${gradeText}.`;
+ }
+ subjectFilter.addEventListener('change',applyFilters);gradeFilter.addEventListener('change',applyFilters);
+ resetFilters.addEventListener('click',()=>{subjectFilter.value='all';gradeFilter.value='all';applyFilters();});
+ applyFilters();
+})();
+</script>
+</body>
+</html>
